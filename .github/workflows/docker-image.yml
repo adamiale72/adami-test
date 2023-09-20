@@ -1,8 +1,5 @@
 name: Publish docker image
 
-env:
-  docker_image_base: adamiale/chords
-
 on:
   push:
     branches: [ "main" ]
@@ -10,14 +7,17 @@ on:
 #   release:
 #     types: [published]
 
+env:
+  IMAGE_NAME: adamiale/${{ github.repository }}:${{ github.ref_name }}
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . -t $docker_image_base:$github.ref_name
+    - name: Build docker image
+      run: docker build . -t ${{ IMAGE_NAME }}
 
   # push_to_registry:
   #   name: Push Docker image to Docker Hub
