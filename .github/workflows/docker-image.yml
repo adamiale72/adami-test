@@ -35,5 +35,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: $IMAGE_NAME:${{ steps.meta.outputs.tags }}
+          tags: adamiale/adami-test:latest
+          # tags: $IMAGE_NAME:${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
