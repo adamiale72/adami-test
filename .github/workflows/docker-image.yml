@@ -3,11 +3,10 @@ name: Publish docker image
 on:
   push:
     branches: [ "main" ]
-    tags:
-      - '*'
-# on:
-#   release:
-#     types: [published]
+  tags:
+    - '*'
+  release:
+    types: [published]
 
 # env:
 #   IMAGE_NAME: adamiale/${{ github.repository }}:${{ github.ref_name }}
